@@ -1,0 +1,38 @@
+{
+  "version": "1.0.1",
+  "name": "jetbusboy",
+  "main": "index.js",
+  "description": "JetPath plugin for file upload using busboy and dependent on nodejs",
+  "type": "module",
+  "files": [
+    "index.d.ts",
+    "index.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fridaycandour/jetpath.git"
+  },
+  "author": "fridaycandour fridaycandours@gmail.com",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/fridaycandour/jetpath/issues"
+  },
+  "homepage": "https://github.com/fridaycandour/jetpath#readme",
+  "scripts": {
+    "compile": "./pack",
+    "watch": "tsc *.ts --target esnext --watch",
+    "build": "./pack"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "bun": ">=0.1.0"
+  },
+  "keywords": [
+    "busboy",
+    "jetpath"
+  ],
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "jetpath": "^1.4.25"
+  }
+}
