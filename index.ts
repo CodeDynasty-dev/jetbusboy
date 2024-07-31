@@ -21,9 +21,9 @@ export const jetbusboy = new JetPlugin({
                 info.filename + Date.now()
               );
               info.location = oldPath;
-              info.saveTo = (name: string) => {
+              info.saveTo = (name: string): Promise<string> => {
                 const newPath = path.resolve(cwd(), name);
-                return new Promise((res, rej) => {
+                return new Promise<string>((res, rej) => {
                   var readStream = createReadStream(oldPath);
                   var writeStream = createWriteStream(newPath);
                   readStream.on("error", (e) => {
@@ -34,7 +34,7 @@ export const jetbusboy = new JetPlugin({
                   });
                   readStream.on("close", function () {
                     unlink(oldPath, (_e) => {});
-                    res(undefined);
+                    res(name);
                   });
                   readStream.pipe(writeStream);
                 });
