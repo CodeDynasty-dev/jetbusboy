@@ -30,9 +30,7 @@ export const jetbusboy = new JetPlugin({
                     rej(e);
                   });
                   readStream.on("close", function () {
-                    unlink(oldPath, (e) => {
-                      rej(e);
-                    });
+                    unlink(oldPath, (_e) => {});
                     res(undefined);
                   });
                   readStream.pipe(writeStream);
