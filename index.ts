@@ -16,7 +16,10 @@ export const jetbusboy = new JetPlugin({
           try {
             const bb = busboy({ headers: ctx.request.headers });
             bb.on("file", (name: string, file: any, info: any) => {
-              const oldPath = path.join(os.tmpdir(), info.filename);
+              const oldPath = path.join(
+                os.tmpdir(),
+                info.filename + Date.now()
+              );
               info.location = oldPath;
               info.saveTo = (name: string) => {
                 const newPath = path.resolve(cwd(), name);
