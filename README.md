@@ -1,5 +1,5 @@
 <br/>
-<p align="center"> 
+<p align="center">
   <p align="center">
 jetPath plugin for file upload using busboy and dependent on nodej
     <br/>
@@ -14,12 +14,13 @@ jetPath plugin for file upload using busboy and dependent on nodej
     <a href="https://github.com/uiedbook/JetPath/issues">Request Feature</a>
   </p>
 </p>
- 
+
 --
 
 ## Installation
 
-Install JetPath Right away on your project using npm or Javascript other package managers.
+Install JetPath Right away on your project using npm or Javascript other package
+managers.
 
 ```
 npm i jetpath --save
@@ -64,18 +65,23 @@ export const BODY_: JetSchema = {
 
 Opensourced And Free.
 
-Uiedbook is an open source, our vision is to make the web better, improving and innovating infrastructures for a better web experience.
+Uiedbook is an open source, our vision is to make the web better, improving and
+innovating infrastructures for a better web experience.
 
-You can [join]("https://t.me/UiedbookHQ") on telegram.
-Ask your questions and contribute XD.
+You can [join]("https://t.me/UiedbookHQ") on telegram. Ask your questions and
+contribute XD.
 
 ### Contribution and License Agreement
 
-If you contribute code to this project, you are implicitly allowing your code to be distributed under the MIT license. You are also implicitly verifying that all code is your original work.
+If you contribute code to this project, you are implicitly allowing your code to
+be distributed under the MIT license. You are also implicitly verifying that all
+code is your original work.
 
 ### Support
 
-Your contribution(s) is a good force for change anytime you do it, you can ensure JetPath's growth and improvement by contributing a re-occuring or fixed donations to:
+Your contribution(s) is a good force for change anytime you do it, you can
+ensure JetPath's growth and improvement by contributing a re-occuring or fixed
+donations to:
 
 https://www.buymeacoffee.com/fridaycandour
 
