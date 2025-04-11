@@ -33,6 +33,6 @@
   ],
   "dependencies": {
     "busboy": "^1.6.0",
-    "jetpath": "^1.4.25"
+    "jetpath": "^1.6.2"
   }
 }

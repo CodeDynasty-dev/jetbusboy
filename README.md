@@ -29,19 +29,16 @@ npm i jetpath --save
 #### An hello App setup
 
 ```ts
-import { JetPath } from "jetpath";
-import { jetbusboy } from "jetbusboy";
+import { type JetFunc } from "jetpath";
+import { jetbusboy, type jetBusBoyType } from "jetbusboy";
 
-const app = new JetPath({
-  port: 9000,
-});
+ 
 app.use(jetbusboy);
 app.listen();
 
 // in your uploader.jet.js
 
-// handler
-export async function POST_upload(ctx: Context) {
+export const  POST_upload: JetFunc<{},[jetBusBoyType]> = async (ctx) => {
   const form = await ctx.app.formData(ctx);
   console.log(form);
   if (form.image) {

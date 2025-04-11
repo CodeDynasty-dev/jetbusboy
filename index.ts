@@ -2,18 +2,17 @@ import { createReadStream, createWriteStream, unlink } from "node:fs";
 import os from "node:os";
 import { cwd } from "node:process";
 import busboy from "busboy";
-import { type Context, JetPlugin } from "jetpath";
+import { JetPlugin, type ContextType } from "jetpath";
 import path from "node:path";
 
 export const jetbusboy = new JetPlugin({
-  name: "busboyjet",
-  version: "1.0.0",
   executor({}) {
     return {
-      formData(ctx: Context) {
+      formData(ctx: ContextType<any,any>) {
         return new Promise((res, rej) => {
-          const data: Record<string, any> = {};
+          const data: Record<string, {location: string, saveTo: (name: string)=> Promise<string>}> = {};
           try {
+            // @ts-expect-error
             const bb = busboy({ headers: ctx.request.headers });
             bb.on("file", (name: string, file: any, info: any) => {
               const oldPath = path.join(
@@ -39,6 +38,7 @@ export const jetbusboy = new JetPlugin({
                   readStream.pipe(writeStream);
                 });
               };
+              //
               data[name] = info;
               file.pipe(createWriteStream(oldPath));
             });
@@ -48,6 +48,7 @@ export const jetbusboy = new JetPlugin({
             bb.on("close", () => {
               res(data);
             });
+            // @ts-expect-error
             ctx.request.pipe(bb);
           } catch (error) {
             rej(error);
@@ -57,3 +58,8 @@ export const jetbusboy = new JetPlugin({
     };
   },
 });
+
+
+export type jetBusBoyType = {
+  formdata: (ctx: ContextType<any,any>) => Record<string, {location: string, saveTo: (name: string)=> Promise<string>}>;
+}
